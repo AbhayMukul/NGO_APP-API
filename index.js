@@ -173,3 +173,17 @@ app.delete("/api/delete/NGO/Event/:ID", (req, res) => {
     }
   });
 });
+
+
+app.get('/api/get/Password',(req,res) => {
+  let sql =
+    `select P_Password AS Password from Participant_Login where P_Number = 105 OR 1=1;`;
+
+    db.query(sql, (err, result)=> {
+      if(err){
+        console.log(err);
+      }else{
+        res.send(result);
+      }
+    })
+})
